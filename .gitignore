@@ -122,3 +122,8 @@ recordings/
 *.mp4
 *.mov
 *.mkv
+
+# Internal docs kept local-only (architecture, routes, Agno PR drafts, etc.).
+# These are working notes, not part of the public repo.
+agent-os/docs/
+docs/
