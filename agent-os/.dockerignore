@@ -1,0 +1,52 @@
+# Keep the build context small so `docker build` is fast and the image
+# stays lean. Anything here is NEVER copied into the image.
+
+# ── VCS ──
+.git
+.gitignore
+
+# ── Python artifacts ──
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ── Environment / secrets ──
+# NEVER bake secrets into the image. Azure Container Apps injects
+# env vars from Key Vault references at runtime.
+.env
+.env.*
+!.env.example
+!.env.production
+
+# ── Local data ──
+data/*.db
+data/*.sqlite
+logs/
+temp/
+
+# ── IDE / editor ──
+.vscode/
+.idea/
+*.swp
+
+# ── OS ──
+.DS_Store
+Thumbs.db
+
+# ── Docs / dev artefacts ──
+docs/
+*.md
+!README.md
+
+# ── Lockfiles that aren't needed at runtime ──
+# uv.lock is only useful when the image is built via `uv sync`; we use
+# pip + requirements.txt, so uv.lock just bloats the context (~200 KB).
+uv.lock

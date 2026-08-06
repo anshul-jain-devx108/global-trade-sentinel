@@ -1,0 +1,300 @@
+.pageLayout {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+}
+
+.mainContainer {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100%;
+  min-width: 0;
+}
+
+/* ── Header ── */
+
+
+/* ── Model Selector Dropdown ── */
+
+
+
+
+
+
+
+/* Dropdown panel */
+
+@keyframes dropIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ── Effort Flyout ── */
+
+
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-4px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+
+
+
+
+
+
+
+/* ── Thinking Toggle ── */
+
+
+
+
+
+
+/* ── Chat Area ── */
+.chatArea {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: auto;
+  padding: 24px 20px 0;
+  position: relative;
+}
+
+/* ── Empty State ── */
+.emptyState {
+  text-align: center;
+  margin: auto 0;
+  padding-bottom: 48px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.subtitle {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+
+/* Suggested prompts */
+.suggestions {
+  margin-top: 28px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.suggestionChip {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.suggestionChip:hover {
+  background: var(--hover-color);
+  border-color: #555;
+  color: var(--text-primary);
+}
+
+/* ── Messages list ── */
+.messages {
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-bottom: 24px;
+}
+
+/* ── Input Section ── */
+.inputSection {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 20px 16px;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 20;
+}
+
+
+.aboveInput {
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 8px;
+}
+
+.newQueryBtn {
+  font-size: 13px;
+  color: var(--text-secondary);
+  padding: 4px 10px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+
+.newQueryBtn:hover {
+  background: var(--hover-color);
+  color: var(--text-primary);
+}
+
+.inputContainer {
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.inputBox {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--bg-input);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 12px 12px 10px 16px;
+  transition: border-color 0.2s;
+}
+
+.inputBox:focus-within {
+  border-color: rgba(216, 155, 74, 0.4);
+}
+
+.inputBottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+/* Tools row — holds trigger + expandable buttons */
+.toolsRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* The + / X icon trigger */
+
+
+/* Open state — rotated, gold */
+
+/* Has active tools — subtle gold tint */
+
+/* Badge showing how many tools are ON */
+
+.textarea {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  font-family: var(--font-inter);
+  font-size: 15px;
+  resize: none;
+  outline: none;
+  line-height: 1.5;
+  max-height: 160px;
+  overflow-y: auto;
+}
+
+.textarea::placeholder { color: #666; }
+
+/* ── Send Button ── */
+.sendBtn {
+  width: 34px;
+  height: 34px;
+  border-radius: 10px;
+  background: #444;
+  color: #888;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.sendBtnActive {
+  background: white;
+  color: black;
+}
+
+.sendBtnActive:hover {
+  background: #e5e5e5;
+}
+
+/* ── Action Row ── */
+
+
+
+/* Web Search active = Blue glow */
+
+
+/* Deep Research special styling when inactive */
+
+/* Active pulsing dot */
+
+@keyframes activePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* Divider between button groups */
+
+
+/* ── Disclaimer ── */
+.disclaimer {
+  margin-top: 10px;
+  font-size: 11px;
+  color: #555;
+  text-align: center;
+}
+
+/* ── Upward Popup Menu ── */
+
+
+@keyframes popUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+
+
+
+
+
+
+
+

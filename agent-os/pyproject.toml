@@ -1,0 +1,57 @@
+[project]
+name = "gts-backend"
+version = "0.1.0"
+description = "Global Trade Sentinel — standalone Agno-based service"
+requires-python = ">=3.12"
+
+# Direct dependencies pinned to the versions currently installed in `.venv`.
+# Sub-dependencies (starlette, httpcore, jiter, wrapt, etc.) resolve
+# transitively — leave them out here so future upgrades don't fight
+# an over-constrained lockfile.
+dependencies = [
+    # ── Web framework ─────────────────────────────────────────
+    "fastapi==0.140.0",
+    "uvicorn[standard]==0.51.0",
+    "python-multipart==0.0.32",
+    # ── Agno agent framework ──────────────────────────────────
+    "agno==2.8.2",
+    "agnoctl==0.1.3",
+    # ── LLM SDKs ──────────────────────────────────────────────
+    "openai==2.48.0",
+    # ── HTTP client ───────────────────────────────────────────
+    # Pinned exact — agno 2.8.x reads httpx internals that break on 0.28+.
+    "httpx==0.27.0",
+    # ── Data / validation ─────────────────────────────────────
+    "pydantic==2.13.4",
+    "sqlalchemy==2.0.51",
+    "PyYAML==6.0.3",
+    # ── Env / config ──────────────────────────────────────────
+    "python-dotenv==1.2.2",
+    # ── OpenTelemetry — powers Agno's /traces endpoint ────────
+    # Without these the /traces router returns 500 "No module named
+    # 'opentelemetry'" and no spans are recorded to `agno_traces`.
+    "opentelemetry-api==1.44.0",
+    "opentelemetry-sdk==1.44.0",
+    "openinference-instrumentation-agno==0.1.38",
+    # ── Scheduler (agno[scheduler] extras) ────────────────────
+    "croniter==6.2.4",
+    "pytz==2026.3.post1",
+    "psycopg2-binary>=2.9.12",
+    # ── Auth: Microsoft SSO + JWT cookies ─────────────────────
+    # Merged in from the old FastAPI gateway (formerly `d:/Netra/backend/`).
+    # SSO redirects the browser to Azure AD, then back to our /auth/callback,
+    # which mints a JWT stored in an HTTP-only cookie. Every /api/v1/gts/*
+    # route reads that cookie via get_current_user.
+    "fastapi-sso>=0.21.1",
+    # `[crypto]` extra pulls `cryptography` — required for RSA (RS256)
+    # signature verification. Without it `jwt.algorithms.RSAAlgorithm`
+    # is unavailable and the Bot Framework JWT check in
+    # msteams/security.py fails on every inbound Teams activity.
+    "pyjwt[crypto]>=2.13.0",
+    # ── Slack interface (agno[slack] extra) ───────────────────
+    # Powers `agno.os.interfaces.slack.Slack` — inbound event handling,
+    # signature verification, Block Kit HITL cards. Same router-agent
+    # binding as Teams, no vendoring needed (unlike msteams/).
+    "slack_sdk>=3.40.0",
+    "aiohttp>=3.7.3,<4",
+]

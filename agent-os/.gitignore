@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+venv/
+.venv/
+
+# Environment
+.env
+*.env
+
+# Database
+*.db
+*.sqlite
+
+# Dev-only scripts / scratch outputs — never committed
+temp/
+
+# Misc
+.DS_Store

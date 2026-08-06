@@ -1,0 +1,124 @@
+# ────────────────────────────────────────────────────────────────
+# Scratch / temp — everything Claude, AGENTS.md, dev-only outputs
+# lives inside temp/ and never gets committed.
+# ────────────────────────────────────────────────────────────────
+temp/
+tmp/
+scratch/
+
+# Belt-and-braces: even if someone drops these outside temp/, block them.
+.claude/
+CLAUDE.md
+AGENTS.md
+**/CLAUDE.md
+**/AGENTS.md
+.cursor/
+.cursorrules
+.aider*
+.continue/
+
+# ────────────────────────────────────────────────────────────────
+# Secrets / environment — NEVER commit
+# ────────────────────────────────────────────────────────────────
+.env
+.env.*
+!.env.example
+*.env
+!*.env.example
+secrets/
+*.pem
+*.key
+*.crt
+
+# ────────────────────────────────────────────────────────────────
+# Python — agent-os service
+# ────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+build/
+dist/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# uv lock is committed intentionally; caches are not
+.uv-cache/
+
+# ────────────────────────────────────────────────────────────────
+# Node / Next.js — frontend
+# ────────────────────────────────────────────────────────────────
+node_modules/
+.next/
+out/
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+*.tsbuildinfo
+next-env.d.ts
+.vercel
+
+# ────────────────────────────────────────────────────────────────
+# Databases / local data — runtime state, dev DB, dumps
+# ────────────────────────────────────────────────────────────────
+*.db
+*.sqlite
+*.sqlite3
+*.dump
+*.sql.gz
+
+# Local runtime data (SQLite dev DB, specialist state, etc.).
+# Prod uses Supabase — nothing in here should ever be committed.
+agent-os/data/
+data/local/
+data/dumps/
+
+# ────────────────────────────────────────────────────────────────
+# Logs
+# ────────────────────────────────────────────────────────────────
+*.log
+logs/
+
+# ────────────────────────────────────────────────────────────────
+# IDE / editor
+# ────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.history/
+
+# ────────────────────────────────────────────────────────────────
+# OS
+# ────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ────────────────────────────────────────────────────────────────
+# Docs / memory / recording artifacts (not committed)
+# ────────────────────────────────────────────────────────────────
+memory/
+recordings/
+*.mp4
+*.mov
+*.mkv
