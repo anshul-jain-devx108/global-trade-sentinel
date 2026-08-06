@@ -127,3 +127,7 @@ recordings/
 # These are working notes, not part of the public repo.
 agent-os/docs/
 docs/
+
+# Deploy scripts kept local-only (Azure deploy commands, infra secrets nearby).
+agent-os/deploy/
+deploy/
